@@ -5,8 +5,8 @@ from Day import Day
 from BroadcastPipe import BroadcastPipe
 
 world = None
-day_duration=10
-night_duration=10
+day_duration=30
+night_duration=30
 
 def clock(env,tick):
     while True:
@@ -20,6 +20,6 @@ if __name__ == "__main__":
 
     dayCycle_pipe = BroadcastPipe(env)
     dayCycle = Day(env,day_duration,night_duration,dayCycle_pipe)
-    world = World(env,dayCycle_pipe.get_output_conn())
+    world = World(env,dayCycle_pipe)
 
     env.run(until=proc)
